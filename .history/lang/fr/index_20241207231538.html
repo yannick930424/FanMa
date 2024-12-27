@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Meta tags pour SEO -->
+    <title>FanMa Expert-conseil | Codes et normes, Gestion de projet, Conception mécanique</title>
+    <meta name="description" content="FanMa est votre expert-conseil en codes du bâtiment, gestion de projet et conception mécanique. Plus de 15 ans d'expérience dans la réalisation de projets complexes.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+    
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+    
+    <!-- Scripts essentiels -->
+    <script>
+        // Configuration adaptée pour localhost
+        window.FanMa = window.FanMa || {};
+        window.FanMa.config = {
+            lang: 'fr',
+            baseUrl: '../../',
+            environment: window.location.hostname === 'localhost' ? 'development' : 'production'
+        };
+    </script>
+    
+    <!-- Chargement des scripts dans l'ordre -->
+    <script src="../../assets/js/data/data.js"></script>
+    <script src="../../assets/js/data/translations.js"></script>
+    <script src="../../assets/js/core/language.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+    <script src="../../assets/js/components/component-loader.js" defer></script>
+    <script src="../../assets/js/core/init.js" defer></script>
+</head>
+<body x-data x-init="$store.language.setLanguage('fr')">
+    <div id="header-container"></div>
+    
+    <main role="main">
+        <!-- Section Hero -->
+        <section id="hero" class="section relative min-h-screen flex items-center">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                   poster="../../assets/images/video-poster.jpg">
+                <source src="../../assets/videos/background.mp4" type="video/mp4">
+                <img src="../../assets/images/fallback-hero.jpg" alt="FanMa Expert-conseil">
+            </video>
+            
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl font-bold mb-6 text-white" x-text="$store.language.t('hero_title')"></h1>
+                    <div class="space-y-4 mb-8">
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title1')"></h2>
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title2')"></h2>
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title3')"></h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Autres sections seront chargées dynamiquement -->
+    </main>
+    
+    <div id="footer-container"></div>
+</body>
+</html>

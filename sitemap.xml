@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- Pages d'accueil -->
+    <url>
+        <loc>https://www.fanma.ca/fr/</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/"/>
+    </url>
+    <url>
+        <loc>https://www.fanma.ca/en/</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/"/>
+    </url>
+
+    <!-- Pages services -->
+    <url>
+        <loc>https://www.fanma.ca/fr/services</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/services"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/services"/>
+    </url>
+    <url>
+        <loc>https://www.fanma.ca/en/services</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/services"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/services"/>
+    </url>
+
+    <!-- Pages à propos -->
+    <url>
+        <loc>https://www.fanma.ca/fr/a-propos</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/a-propos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/about"/>
+    </url>
+    <url>
+        <loc>https://www.fanma.ca/en/about</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/a-propos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/about"/>
+    </url>
+
+    <!-- Pages contact -->
+    <url>
+        <loc>https://www.fanma.ca/fr/contact</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/contact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/contact"/>
+    </url>
+    <url>
+        <loc>https://www.fanma.ca/en/contact</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/contact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/contact"/>
+    </url>
+
+    <!-- Pages légales -->
+    <url>
+        <loc>https://www.fanma.ca/fr/privacy-policy</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/privacy-policy"/>
+    </url>
+    <url>
+        <loc>https://www.fanma.ca/fr/terms-of-service</loc>
+        <lastmod>2024-09-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/terms-of-service"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/terms-of-service"/>
+    </url>
+</urlset>

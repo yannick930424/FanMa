@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="{ language: $store.language.current }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--     <meta name="description" x-bind:content="t('meta_description')" /> -->
+    <meta property="og:title" content="t('page_title')">
+    <meta property="og:description" content="t('meta_description')">
+    <meta property="og:image" content="https://www.fanma.ca/images/og-image.jpg">
+    <meta property="og:url" content="https://www.fanma.ca">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="t('hero_title')">
+    <meta name="twitter:description" content="t('meta_description')">
+    <meta name="twitter:image" content="https://www.fanma.ca/images/twitter-image.jpg">
+    <title x-text="t('page_title')"></title>
+    <link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/">
+    <link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/">
+    <link rel="alternate" hreflang="x-default" href="https://www.fanma.ca/">
+
+        <!-- Imports des styles et scripts -->
+        <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link href="../../assets/css/styles.css" rel="stylesheet">
+        
+        <!-- Scripts -->
+        <script src="../../assets/js/data/data.js"></script>
+        <script src="../../assets/js/data/translations.js"></script>
+        <script src="../../assets/js/core/language.js"></script>
+        <script src="../../assets/js/components/services.js"></script>
+        <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+        <script src="../../assets/js/utils/animations.js" defer></script>
+        <script src="../../assets/js/components/component-loader.js" defer></script>
+        <script src="../../assets/js/core/init.js" defer></script>
+
+
+    <script>
+    function loadJSONLD() {
+    fetch('js/schema.jsonld')
+    .then(response => response.text())
+    .then(data => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = data;
+    document.head.appendChild(script);
+    })
+    .catch(error => console.error('Error loading JSON-LD:', error));
+    }
+    document.addEventListener('DOMContentLoaded', loadJSONLD);
+    </script>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <div id="header-container"></div>
+
+    <main class="flex-grow">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold mb-6" x-text="$store.language.t('privacy_policy')">Politique de
+                confidentialité</h1>
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div x-html="$store.language.t('privacy_policy_content')"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="js/language.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/component-loader.js"></script>
+</body>
+
+</html>

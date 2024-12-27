@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags standards -->
+    <meta name="description" content="Découvrez FanMa, expert-conseil avec plus de 15 ans d'expérience. Notre fondateur, ingénieur multidisciplinaire, allie expertise en codes du bâtiment et gestion de projets complexes.">
+    
+    <!-- Meta tags OpenGraph -->
+    <meta property="og:title" content="À propos - FanMa Expert-conseil | Notre histoire et notre expertise"> 
+    <meta property="og:description" content="Plus de 15 ans d'expertise en codes du bâtiment, gestion de projet et conception mécanique. Une équipe d'experts qualifiés dirigée par un ingénieur multidisciplinaire.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_CA">
+    <meta property="og:locale:alternate" content="en_CA">
+    <meta property="og:image" content="https://www.fanma.ca/images/og-image-about.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.fanma.ca/fr/a-propos">
+    
+    <!-- Meta tags Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À propos - FanMa Expert-conseil | Notre histoire et notre expertise">
+    <meta name="twitter:description" content="Plus de 15 ans d'expertise en codes du bâtiment, gestion de projet et conception mécanique. Une équipe d'experts dirigée par un ingénieur multidisciplinaire.">
+    <meta name="twitter:image" content="https://www.fanma.ca/images/twitter-image-about.jpg">
+    
+    <!-- Liens alternatifs pour le SEO multilingue -->
+    <link rel="alternate" hreflang="fr" href="https://www.fanma.ca/fr/a-propos">
+    <link rel="alternate" hreflang="en" href="https://www.fanma.ca/en/about">
+    <link rel="canonical" href="https://www.fanma.ca/fr/a-propos">
+    
+    <title>À propos - FanMa Expert-conseil | Notre histoire et notre expertise</title>
+    
+    <!-- Imports des styles et scripts -->
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/services.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+    <script src="../js/component-loader.js" defer></script>
+    <script src="../js/init.js" defer></script>
+</head>
+<body x-data="{ isScrolled: false }" 
+      x-init="
+        window.addEventListener('scroll', () => isScrolled = window.pageYOffset > 20);
+        $watch('$store.language.current', () => {
+            Alpine.nextTick(() => {
+                document.querySelectorAll('[x-data]').forEach(el => {
+                    if (el.__x) {
+                        el.__x.updateElement(el);
+                    }
+                });
+            });
+        });
+        $store.language.setLanguage('fr');">
+    
+    <div id="header-container"></div>
+    
+    <main class="pt-20">
+        <section id="about" class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-blue-800"
+                    x-text="$store.language.t('about_title')"></h2>
+                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 sm:p-8 md:p-10">
+                    <div class="space-y-6 sm:space-y-8">
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg"
+                            x-text="$store.language.t('about_paragraph1')"></p>
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg"
+                            x-text="$store.language.t('about_paragraph2')"></p>
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg"
+                            x-text="$store.language.t('about_paragraph3')"></p>
+                    </div>
+                </div>
+                <div class="mt-12 sm:mt-16 text-center">
+                    <a href="#contact"
+                        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                        <span x-text="$store.language.t('learn_more_button')"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="history-founder" class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-blue-800"
+                    x-text="$store.language.t('history_founder_title')"></h2>
+
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+                    <!-- Sous-section Histoire -->
+                    <div class="bg-white rounded-lg shadow-md p-6 sm:p-8">
+                        <h3 class="text-2xl sm:text-3xl font-semibold mb-6 text-blue-600"
+                            x-text="$store.language.t('history_title')"></h3>
+                        <div class="space-y-4 sm:space-y-6">
+                            <p class="text-gray-700 leading-relaxed" x-text="$store.language.t('history_paragraph1')">
+                            </p>
+                            <p class="text-gray-700 leading-relaxed" x-text="$store.language.t('history_paragraph2')">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sous-section Fondateur -->
+                    <div class="bg-white rounded-lg shadow-md p-6 sm:p-8">
+                        <h3 class="text-2xl sm:text-3xl font-semibold mb-6 text-blue-600"
+                            x-text="$store.language.t('founder_title')"></h3>
+                        <div class="space-y-6">
+                            <p class="text-gray-700 leading-relaxed" x-text="$store.language.t('founder_intro')"></p>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-3 text-blue-500"
+                                    x-text="$store.language.t('founder_education')"></h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <template x-for="i in [1, 2, 3, 4, 5, 6]">
+                                        <li x-text="$store.language.t(`founder_qualification_${i}`)"></li>
+                                    </template>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-3 text-blue-500"
+                                    x-text="$store.language.t('founder_career')"></h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <template x-for="i in [7, 8, 9]">
+                                        <li x-text="$store.language.t(`founder_qualification_${i}`)"></li>
+                                    </template>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-3 text-blue-500"
+                                    x-text="$store.language.t('founder_expertise')"></h4>
+                                <p class="text-gray-700" x-text="$store.language.t('founder_qualification_10')"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+</html>

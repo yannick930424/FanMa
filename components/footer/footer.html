@@ -1,0 +1,71 @@
+<footer x-data="footerComponent" class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Logo Section -->
+        <div>
+            <img src="/assets/images/logo.png" 
+                 :alt="$store.language.t('company_name')" 
+                 class="h-12 mb-4" 
+                 loading="lazy">
+        </div>
+
+        <!-- Quick Links Section -->
+        <div>
+            <h4 class="text-lg font-semibold mb-4" x-text="$store.language.t('quick_links')"></h4>
+            <ul class="space-y-2">
+                <template x-for="link in quickLinks" :key="link.key">
+                    <li>
+                        <a :href="getNavUrl(link)"
+                           class="text-gray-400 hover:text-white transition duration-300"
+                           x-text="$store.language.t(link.translationKey)"></a>
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+            <h4 class="text-lg font-semibold mb-4" x-text="$store.language.t('contact')"></h4>
+            <ul class="space-y-3">
+                <template x-for="contact in contactInfo" :key="contact.key">
+                    <li class="flex items-start">
+                        <span class="w-5 h-5 mr-2 mt-1" x-html="contact.icon"></span>
+                        <span x-text="$store.language.t(contact.translationKey)"></span>
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div>
+            <h4 class="text-lg font-semibold mb-4" x-text="$store.language.t('follow_us')"></h4>
+            <div class="flex space-x-4">
+                <template x-for="social in socialMedia" :key="social.platform">
+                    <a :href="social.url"
+                       :title="social.title"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-gray-400 hover:text-white transition duration-300">
+                        <span class="w-6 h-6" x-html="social.icon"></span>
+                    </a>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <div class="mt-8 text-center text-sm">
+            <template x-for="(link, index) in legalLinks" :key="link.key">
+                <span>
+                    <a :href="getNavUrl(link)"
+                       class="text-gray-400 hover:text-white transition duration-300"
+                       x-text="$store.language.t(link.translationKey)"></a>
+                    <span x-show="index < legalLinks.length - 1" class="mx-2">|</span>
+                </span>
+            </template>
+        </div>
+        <div class="mt-4">
+            <span x-text="getCopyrightText()"></span>
+        </div>
+    </div>
+</footer>

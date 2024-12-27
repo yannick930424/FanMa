@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanMa - Redirection</title>
+    <script>
+        // Détection simple de la langue du navigateur
+        var userLang = navigator.language || navigator.userLanguage;
+        var preferredLang = userLang.split('-')[0].toLowerCase();
+        
+        // Redirection vers la version appropriée
+        if (preferredLang === 'fr') {
+            window.location.href = '/fr/';
+        } else {
+            window.location.href = '/en/';
+        }
+    </script>
+    <!-- En cas de JavaScript désactivé -->
+    <meta http-equiv="refresh" content="0;url=/fr/">
+</head>
+<body>
+    <p>Redirection en cours...</p>
+</body>
+</html>

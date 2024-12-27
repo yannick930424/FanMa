@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Meta tags pour SEO -->
+    <title>FanMa Expert-conseil | Codes et normes, Gestion de projet, Conception mécanique</title>
+    <meta name="description" content="FanMa est votre expert-conseil en codes du bâtiment, gestion de projet et conception mécanique. Plus de 15 ans d'expérience dans la réalisation de projets complexes.">
+    <meta name="keywords" content="codes du bâtiment, gestion de projet, conception mécanique, expert-conseil, ingénierie, Québec">
+    
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="FanMa Expert-conseil">
+    <meta property="og:image" content="../../assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script src="../../assets/js/data/data.js"></script>
+    <script src="../../assets/js/data/translations.js"></script>
+    <script src="../../assets/js/core/language.js"></script>
+    <script src="../../assets/js/components/services.js" defer></script>
+    <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+    <script src="../../assets/js/components/component-loader.js" defer></script>
+    <script src="../../assets/js/core/init.js" defer></script>
+    <script src="../../assets/js/utils/animations.js" defer></script>
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" src="../../assets/js/data/schema.jsonld"></script>
+
+    <script>
+        window.FanMa = window.FanMa || {};
+        window.FanMa.config = {
+            lang: 'fr',
+            baseUrl: '../../',
+            environment: window.location.hostname === 'localhost' ? 'development' : 'production'
+        };
+    </script>
+</head>
+
+<body x-data="{ isScrolled: false }" 
+      x-init="
+        window.addEventListener('scroll', () => isScrolled = window.pageYOffset > 20, { passive: true });
+        $watch('$store.language.current', () => {
+            Alpine.nextTick(() => {
+                document.querySelectorAll('[x-data]').forEach(el => {
+                    if (el.__x) {
+                        el.__x.updateElement(el);
+                    }
+                });
+            });
+        });
+        $store.language.setLanguage('fr');">
+    
+    <div id="header-container"></div>
+    
+    <main role="main">
+        <!-- Section Hero -->
+        <section id="hero" class="section relative overflow-hidden min-h-screen flex items-center">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                   poster="../../assets/images/video-poster.jpg">
+                <source src="../../assets/videos/background.mp4" type="video/mp4">
+                <img src="../../assets/images/fallback-hero.jpg" alt="FanMa Expert-conseil" class="w-full h-full object-cover">
+            </video>
+            
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight animate-fadeIn text-white" 
+                        x-text="$store.language.t('hero_title')"></h1>
+                    
+                    <div class="space-y-2 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title1')"></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title2')"></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title3')"></h2>
+                    </div>
+                    
+                    <p class="text-xl sm:text-2xl text-white mb-8 animate-fadeIn" 
+                       x-text="$store.language.t('hero_subtitle')"></p>
+                       
+                    <a href="#contact" 
+                       class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-300 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fadeIn"
+                       x-text="$store.language.t('cta_button')"></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Services -->
+        <section id="services" x-data="serviceModal()" class="section py-12 sm:py-16 md:py-20 bg-light-blue">
+            <!-- Le contenu des services sera ajouté ici -->
+        </section>
+
+        <!-- Section À propos -->
+        <section id="about" class="section py-12 sm:py-16 md:py-20 bg-gray-100">
+            <!-- Le contenu à propos sera ajouté ici -->
+        </section>
+
+        <!-- Section Histoire et Fondateur -->
+        <section id="history-founder" class="section py-12 sm:py-16 md:py-20 bg-gray-100">
+            <!-- Le contenu histoire et fondateur sera ajouté ici -->
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" x-data="contactForm()" class="section py-12 sm:py-16 md:py-20 bg-light-gray">
+            <!-- Le contenu du formulaire de contact sera ajouté ici -->
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <div id="footer-container"></div>
+    
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 bg-blue-600 text-white p-2 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-700 transform hover:-translate-y-1"
+            aria-label="Retour en haut">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+</body>
+</html>

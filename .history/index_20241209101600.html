@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanMa - Redirection</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .redirect-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .loading {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #2563eb;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            defaultLang: 'fr',
+            supportedLangs: ['fr', 'en'],
+            // Supprimer la partie /lang/ pour le développement local
+            pathPrefix: window.location.hostname === 'localhost' ? '' : '/lang'
+        };
+
+        function redirectToLanguage() {
+            try {
+                // Vérifier la langue stockée
+                const storedLang = localStorage.getItem('lang');
+                if (storedLang && CONFIG.supportedLangs.includes(storedLang)) {
+                    redirect(storedLang);
+                    return;
+                }
+
+                // Détecter la langue du navigateur
+                let userLang = (navigator.languages && navigator.languages.length) 
+                    ? navigator.languages[0] 
+                    : (navigator.language || navigator.userLanguage);
+
+                // Normaliser le code de langue
+                const preferredLang = userLang.toLowerCase().split(/[-_]/)[0];
+
+                // Choisir la langue cible
+                const targetLang = CONFIG.supportedLangs.includes(preferredLang) 
+                    ? preferredLang 
+                    : CONFIG.defaultLang;
+
+                localStorage.setItem('lang', targetLang);
+                redirect(targetLang);
+
+            } catch (error) {
+                console.error('Erreur de redirection:', error);
+                redirect(CONFIG.defaultLang);
+            }
+        }
+
+        function redirect(lang) {
+            const path = `${CONFIG.pathPrefix}/${lang}/`;
+            // Pour le développement local, utiliser un chemin relatif
+            window.location.href = window.location.hostname === 'localhost' 
+                ? path 
+                : `https://www.fanma.ca${path}`;
+        }
+
+        // Léger délai pour montrer l'animation
+        setTimeout(redirectToLanguage, 500);
+    </script>
+
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/fr/">
+    </noscript>
+</head>
+<body>
+    <div class="redirect-container">
+        <img src="assets/images/logo.png" alt="FanMa Logo" class="logo">
+        <h1>FanMa Expert-conseil</h1>
+        <div class="loading"></div>
+        <noscript>
+            <p>Si vous n'êtes pas redirigé automatiquement, <a href="/fr/">cliquez ici</a>.</p>
+        </noscript>
+    </div>
+</body>
+</html>
