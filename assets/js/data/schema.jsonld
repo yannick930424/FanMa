@@ -1,0 +1,148 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.fanma.ca/#organization",
+  "name": "FanMa Expert-conseil",
+  "legalName": "FanMa Expert-conseil Inc.",
+  "description": {
+      "@type": "Text",
+      "@language": "fr",
+      "@value": "Expert-conseil en Codes et normes, Gestion de projet, et Conception mécanique avec plus de 15 ans d'expérience dans la réalisation de projets complexes dans les secteurs du bâtiment, manufacturier et aéronautique."
+  },
+  "alternateName": "FanMa Consultant",
+  "url": "https://www.fanma.ca",
+  "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.fanma.ca/assets/images/logo.png"
+  },
+  "image": [
+      "https://www.fanma.ca/assets/images/logo.png"
+  ],
+  "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "13450 Rue Simetin",
+      "addressLocality": "Mirabel",
+      "addressRegion": "QC",
+      "postalCode": "J7N 0Z8",
+      "addressCountry": "CA"
+  },
+  "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "45.6417",
+      "longitude": "-73.8833"
+  },
+  "telephone": "+15145778578",
+  "email": "info@fanma.ca",
+  "sameAs": [
+      "https://www.linkedin.com/company/fanma-expert-conseil",
+      "https://twitter.com/FanMa",
+      "https://www.facebook.com/FanMa"
+  ],
+  "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+      ],
+      "opens": "08:30",
+      "closes": "16:30"
+  },
+  "priceRange": "$$",
+  "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "45.6417",
+          "longitude": "-73.8833"
+      },
+      "geoRadius": "100km"
+  },
+  "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services FanMa",
+      "itemListElement": [
+          {
+              "@type": "Service",
+              "name": "Codes et normes",
+              "description": "Expertise en conformité et interprétation des codes du bâtiment"
+          },
+          {
+              "@type": "Service",
+              "name": "Gestion de projet",
+              "description": "Gestion de projets majeurs dans la construction et l'aéronautique"
+          },
+          {
+              "@type": "Service",
+              "name": "Conception mécanique",
+              "description": "Solutions de conception mécanique pour divers secteurs industriels"
+          }
+      ]
+  },
+  "founder": {
+      "@type": "Person",
+      "name": "Fanny Mangumbu",
+      "jobTitle": "Ingénieur, Fondateur",
+      "description": "Ingénieur multidisciplinaire avec expertise en codes du bâtiment et gestion de projet",
+      "alumniOf": [
+          {
+              "@type": "CollegeOrUniversity",
+              "name": "École Polytechnique de Montréal"
+          }
+      ]
+  },
+  "foundingDate": "2008",
+  "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": "1",
+      "maxValue": "10"
+  },
+  "contactPoint": [
+      {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+15145778578",
+          "email": "info@fanma.ca",
+          "availableLanguage": ["French", "English"]
+      }
+  ],
+  "knowsLanguage": [
+      {
+          "@type": "Language",
+          "name": "French"
+      },
+      {
+          "@type": "Language",
+          "name": "English"
+      }
+  ],
+  "keywords": [
+      "codes du bâtiment",
+      "codes et normes",
+      "gestion de projet",
+      "conception mécanique",
+      "expert-conseil",
+      "ingénierie",
+      "Québec",
+      "construction",
+      "aéronautique",
+      "conformité",
+      "réglementation"
+  ],
+  "memberOf": [
+      {
+          "@type": "Organization",
+          "name": "Ordre des ingénieurs du Québec"
+      }
+  ],
+  "potentialAction": {
+      "@type": "Action",
+      "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.fanma.ca/fr/contact",
+          "name": "Page de contact"
+      }
+  }
+}

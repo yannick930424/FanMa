@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Meta tags for SEO -->
+    <title>FanMa Consulting | Codes and Standards, Project Management, Mechanical Design</title>
+    <meta name="description" content="FanMa is your expert consultant in building codes, project management and mechanical design. Over 15 years of experience in executing complex projects.">
+    
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en" href="/lang/en/">
+    <link rel="alternate" hreflang="fr" href="/lang/fr/">
+    <link rel="canonical" href="/lang/en/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+    
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+    
+<!-- Configuration -->
+<script>
+    window.FanMa = window.FanMa || {};
+    window.FanMa.config = {
+        lang: 'en',
+        baseUrl: '../../',
+        environment: window.location.hostname === 'localhost' ? 'development' : 'production'
+    };
+</script>
+
+<!-- Data et traductions -->
+<script src="../../assets/js/data/data.js"></script>
+<script src="../../assets/js/data/translations.js"></script>
+
+<!-- Composants -->
+<script src="../../components/header/header.js"></script>
+<script src="../../components/footer/footer.js"></script>
+<script src="../../assets/js/components/services.js"></script>
+
+<!-- Core -->
+<script src="../../assets/js/core/language.js"></script>
+<script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+
+<!-- Init -->
+<script src="../../assets/js/core/init.js" defer></script>
+<script src="../../assets/js/components/component-loader.js" defer></script>
+</head>
+<body x-data x-init="$store.language.setLanguage('en')">
+    <header id="header-container" x-data="headerComponent"></header>
+    
+    <main role="main">
+        <!-- Hero Section -->
+        <section id="hero" class="section relative min-h-screen flex items-center">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                   poster="../../assets/images/video-poster.jpg">
+                <source src="../../assets/videos/banner.mov" type="video/mp4">
+                <img src="../../assets/images/fallback-hero.jpg" alt="FanMa Consulting">
+            </video>
+            
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl font-bold mb-6 text-white" x-text="$store.language.t('hero_title')"></h1>
+                    <div class="space-y-4 mb-8">
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title1')"></h2>
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title2')"></h2>
+                        <h2 class="text-3xl font-semibold text-white" x-text="$store.language.t('hero_title3')"></h2>
+                    </div>
+                    <p class="text-xl text-white mb-8" x-text="$store.language.t('hero_subtitle')"></p>
+                    <a href="#contact" 
+                       class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300"
+                       x-text="$store.language.t('cta_button')"></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Sections -->
+        <section id="services" x-data="serviceModal()" class="section py-12 bg-light-blue">
+            <!-- Services content will be loaded dynamically -->
+        </section>
+
+        <section id="about" class="section py-12 bg-gray-100">
+            <!-- About content will be loaded dynamically -->
+        </section>
+
+        <section id="contact" x-data="contactForm()" class="section py-12 bg-light-gray">
+            <!-- Contact form will be loaded dynamically -->
+        </section>
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 bg-blue-600 text-white p-2 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-700"
+            aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Development Tools -->
+    <script>
+        if (window.FanMa.config.environment === 'development') {
+            // Ajouter des outils de débogage pour le développement
+            console.log('Development mode enabled');
+            
+            // Observer les changements de langue
+            document.addEventListener('language-changed', (e) => {
+                console.log('Language changed:', e.detail);
+            });
+
+            // Observer le chargement des composants
+            document.addEventListener('component-loaded', (e) => {
+                console.log('Component loaded:', e.detail);
+            });
+        }
+    </script>
+        <footer id="footer-container" x-data="footerComponent"></footer>
+</body>
+</html>

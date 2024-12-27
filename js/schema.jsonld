@@ -1,0 +1,21 @@
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "FanMa",
+    "description": "Expert-conseil en Codes et normes, Gestion de projet, et Conception mécanique",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "13450 Rue Simetin",
+      "addressLocality": "Mirabel",
+      "addressRegion": "QC",
+      "postalCode": "J7N 0Z8",
+      "addressCountry": "CA"
+    },
+    "telephone": "+15145778578",
+    "url": "https://www.fanma.ca",
+    "sameAs": [
+      "https://www.linkedin.com/company/fanma-expert-conseil",
+      "https://twitter.com/FanMa",
+      "https://www.facebook.com/FanMa"
+    ]
+  }

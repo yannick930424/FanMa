@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanMa - Redirection</title>
+
+    <!-- SEO -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.fanma.ca/lang/fr/">
+
+    <!-- Préchargement -->
+    <link rel="prerender" href="/lang/fr/">
+    <link rel="prerender" href="/lang/en/">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .redirect-container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .loading {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #2563eb;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            defaultLang: 'fr',
+            supportedLangs: ['fr', 'en'],
+            isLocal: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+            pathPrefix: '/lang' // Toujours utiliser /lang pour compatibilité
+        };
+
+        function redirectToLanguage() {
+            try {
+                // Vérifier la langue stockée
+                const storedLang = localStorage.getItem('lang');
+                if (storedLang && CONFIG.supportedLangs.includes(storedLang)) {
+                    redirect(storedLang);
+                    return;
+                }
+
+                // Détecter la langue du navigateur
+                const userLang = (navigator.languages && navigator.languages.length) 
+                    ? navigator.languages[0] 
+                    : (navigator.language || navigator.userLanguage);
+
+                // Normaliser le code de langue
+                const langCode = userLang.toLowerCase().split(/[-_]/)[0];
+
+                // Sélectionner la langue
+                const targetLang = CONFIG.supportedLangs.includes(langCode) ? langCode : CONFIG.defaultLang;
+
+                // Sauvegarder et rediriger
+                localStorage.setItem('lang', targetLang);
+                redirect(targetLang);
+
+            } catch (error) {
+                console.error('Erreur de redirection:', error);
+                redirect(CONFIG.defaultLang);
+            }
+        }
+
+        function redirect(lang) {
+            // Toujours utiliser le même format de chemin
+            const path = `${CONFIG.pathPrefix}/${lang}/`;
+            
+            // Le serveur Python s'occupera de la redirection locale
+            if (CONFIG.isLocal) {
+                window.location.href = path;
+            } else {
+                window.location.href = `https://www.fanma.ca${path}`;
+            }
+        }
+
+        // Léger délai pour l'animation
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(redirectToLanguage, 500);
+        });
+    </script>
+
+    <!-- Fallback sans JavaScript -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/lang/fr/">
+    </noscript>
+</head>
+<body>
+    <div class="redirect-container">
+        <img src="/assets/images/logo.png" alt="FanMa Logo" class="logo">
+        <h1>FanMa Expert-conseil</h1>
+        <div class="loading"></div>
+        <noscript>
+            <p>Si vous n'êtes pas redirigé automatiquement, <a href="/lang/fr/">cliquez ici</a>.</p>
+        </noscript>
+    </div>
+</body>
+</html>

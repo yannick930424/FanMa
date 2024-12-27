@@ -1,0 +1,106 @@
+# Configuration robots.txt pour FanMa.ca
+# Dernière mise à jour : 2024-12-07
+
+# Règles globales pour tous les robots
+User-agent: *
+
+# Pages principales autorisées
+Allow: /lang/fr/
+Allow: /lang/en/
+Allow: /sitemap.xml
+Allow: /assets/images/
+Allow: /assets/css/styles.css
+
+# Pages spécifiques autorisées en français
+Allow: /lang/fr/index.html
+Allow: /lang/fr/a-propos.html
+Allow: /lang/fr/services.html
+Allow: /lang/fr/contact.html
+Allow: /lang/fr/privacy-policy.html
+Allow: /lang/fr/terms-of-service.html
+
+# Pages spécifiques autorisées en anglais
+Allow: /lang/en/index.html
+Allow: /lang/en/about.html
+Allow: /lang/en/services.html
+Allow: /lang/en/contact.html
+Allow: /lang/en/privacy-policy.html
+Allow: /lang/en/terms-of-service.html
+
+# Protection des dossiers système et fichiers sensibles
+Disallow: /config/
+Disallow: /components/
+Disallow: /assets/js/core/
+Disallow: /assets/js/data/
+Disallow: /assets/js/utils/
+Disallow: /.git/
+Disallow: /.htaccess
+Disallow: /README.md
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /node_modules/
+Disallow: /vendor/
+Disallow: /*.sql
+Disallow: /*.log
+Disallow: /*.php
+Disallow: /*.env
+Disallow: /*.config
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /cache/
+
+# Protection des scripts et fichiers de configuration
+Disallow: /*.js$
+Disallow: /*.json$
+Disallow: /*.yml
+Disallow: /*.yaml
+Disallow: /*.xml$
+Disallow: /*.txt$
+
+# Protection des URLs avec paramètres de recherche/filtrage
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /*#*
+
+# Protection des pages d'erreur
+Disallow: /lang/fr/404.html
+Disallow: /lang/en/404.html
+Disallow: /lang/fr/500.html
+Disallow: /lang/en/500.html
+
+# Règles spécifiques pour Googlebot
+User-agent: Googlebot
+Crawl-delay: 10
+Allow: /*.js$
+Allow: /*.css$
+Allow: /sitemap.xml
+
+# Règles spécifiques pour Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Règles spécifiques pour Bingbot
+User-agent: Bingbot
+Crawl-delay: 10
+Allow: /*.js$
+Allow: /*.css$
+Allow: /sitemap.xml
+
+# Plan du site principal
+Sitemap: https://www.fanma.ca/sitemap.xml
+
+# Limite de la fréquence de crawl pour les autres robots
+User-agent: *
+Crawl-delay: 20
+
+# Instructions additionnelles pour les robots
+# Host: www.fanma.ca
+# Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content

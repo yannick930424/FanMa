@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Meta tags for SEO -->
+    <title>FanMa Consulting | Codes and Standards, Project Management, Mechanical Design</title>
+    <meta name="description" content="FanMa is your expert consultant in building codes, project management and mechanical design. Over 15 years of experience in executing complex projects.">
+    <meta name="keywords" content="building codes, project management, mechanical design, consulting, engineering, Quebec">
+    
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="FanMa Consulting">
+    <meta property="og:title" content="FanMa Consulting | Codes and Standards, Project Management, Mechanical Design">
+    <meta property="og:description" content="Expert consultant in building codes, project management and mechanical design. Over 15 years of experience in executing complex projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <meta property="og:image" content="https://www.fanma.ca/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.fanma.ca/en/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FanMa Consulting">
+    <meta name="twitter:description" content="Expert consultant in building codes, project management and mechanical design. Over 15 years of experience.">
+    <meta name="twitter:image" content="https://www.fanma.ca/assets/images/twitter-image.jpg">
+    
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en-CA" href="https://www.fanma.ca/en/">
+    <link rel="alternate" hreflang="fr-CA" href="https://www.fanma.ca/fr/">
+    <link rel="canonical" href="https://www.fanma.ca/en/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="image" href="/assets/images/logo.png">
+    <link rel="preload" as="video" href="/assets/videos/background.mp4" type="video/mp4">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" 
+          integrity="sha384-[hash]" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    
+    <!-- Core Scripts -->
+    <script>
+        // Configuration initiale
+        window.FanMa = window.FanMa || {};
+        window.FanMa.config = {
+            lang: 'en',
+            baseUrl: 'https://www.fanma.ca',
+            environment: 'production'
+        };
+    </script>
+    
+    <!-- Scripts avec ordre de chargement optimisé -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" defer></script>
+    <script src="/assets/js/data/data.js"></script>
+    <script src="/assets/js/data/translations.js"></script>
+    <script src="/assets/js/core/language.js"></script>
+    <script src="/assets/js/components/services.js" defer></script>
+    <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+    <script src="/assets/js/components/component-loader.js" defer></script>
+    <script src="/assets/js/core/init.js" defer></script>
+    <script src="/assets/js/utils/animations.js" defer></script>
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" src="/assets/js/data/schema.jsonld"></script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Mesure de performance simple
+        window.performance.mark('page-start');
+        document.addEventListener('DOMContentLoaded', () => {
+            window.performance.mark('dom-loaded');
+            window.performance.measure('page-load', 'page-start', 'dom-loaded');
+        });
+    </script>
+</head>
+
+<body x-data="{ isScrolled: false }" 
+      x-init="
+        window.addEventListener('scroll', () => isScrolled = window.pageYOffset > 20, { passive: true });
+        $watch('$store.language.current', () => {
+            Alpine.nextTick(() => {
+                document.querySelectorAll('[x-data]').forEach(el => {
+                    if (el.__x) {
+                        el.__x.updateElement(el);
+                    }
+                });
+            });
+        });
+        $store.language.setLanguage('en');">
+    
+    <!-- Header -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section id="hero" class="section relative overflow-hidden min-h-screen flex items-center">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                   poster="/assets/images/video-poster.jpg">
+                <source src="/assets/videos/background.mp4" type="video/mp4">
+                <img src="/assets/images/fallback-hero.jpg" alt="FanMa Consulting" class="w-full h-full object-cover">
+            </video>
+            
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight animate-fadeIn text-white" 
+                        x-text="$store.language.t('hero_title')"></h1>
+                    
+                    <div class="space-y-2 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title1')"></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title2')"></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight animate-fadeIn text-white" 
+                            x-text="$store.language.t('hero_title3')"></h2>
+                    </div>
+                    
+                    <p class="text-xl sm:text-2xl text-white mb-8 animate-fadeIn" 
+                       x-text="$store.language.t('hero_subtitle')"></p>
+                       
+                    <a href="#contact" 
+                       class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300 animate-fadeIn"
+                       x-text="$store.language.t('cta_button')"></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Autres sections à ajouter ici -->
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 bg-blue-600 text-white p-2 rounded-full shadow-lg opacity-0 transition-opacity duration-300"
+            aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+</body>
+</html>

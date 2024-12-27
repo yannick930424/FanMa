@@ -1,0 +1,513 @@
+/* styles.css */
+
+/* Importation de la police Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS personnalisées */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #fbbf24;
+  --text-color: #1f2937;
+  --bg-light: #f3f4f6;
+  --bg-medium: #e5e7eb;
+  --bg-dark: #d1d5db;
+}
+
+/* Styles de base */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* En-tête */
+header {
+    transition: all 0.3s ease;
+    padding-top: 20px; /* Ajoute un espace en haut de l'en-tête */
+    padding-bottom: 10px; /* Facultatif, ajustez si besoin */
+}
+
+header.shrink {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navigation */
+
+/* Styles de contour arrondi pour les éléments de menu */
+nav a {
+  position: relative;
+  padding: 0.5rem 1.5rem; /* Ajuste le padding pour rendre la forme plus allongée */
+  border: 2px solid var(--primary-color); /* Ajoute un contour autour de chaque lien */
+  border-radius: 50px; /* Rend les coins très arrondis, créant une forme elliptique */
+  color: var(--text-color); /* Couleur du texte par défaut */
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--primary-color); /* Change la couleur de fond au survol */
+  color: white !important; /* Forcer la couleur du texte à être blanche au survol */
+  border-color: var(--secondary-color); /* Change la couleur du contour au survol */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Boutons */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Sections */
+section {
+  padding: 4rem 0;
+}
+
+/* Section Services */
+#services {
+  background-color: var(--bg-light);
+}
+
+/* Section À propos */
+#about {
+  background-color: white;
+}
+
+/* Section Histoire et Fondateur */
+#history-founder {
+  background-color: var(--bg-medium);
+}
+
+/* Section Contact */
+#contact {
+  background-color: var(--bg-light);
+}
+
+.section-title {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 2rem;
+}
+
+/* Ajoutez une bordure subtile entre les sections */
+section:not(#hero) {
+  border-top: 1px solid var(--bg-dark);
+}
+
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.bg-light-blue {
+  background-color: #f0f5ff; /* Un bleu très clair */
+}
+
+.bg-light-gray {
+  background-color: #f7f7f7; /* Un gris très clair */
+}
+
+
+#hero {
+  position: relative;
+  height: 100vh; /* Ajustez selon vos besoins */
+  min-height: 500px; /* Hauteur minimale */
+  display: flex;
+  align-items: center;
+}
+
+#hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Ajoute un léger assombrissement pour améliorer la lisibilité du texte */
+  z-index: 1;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Assurez-vous que c'est cohérent */
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* Effets de survol pour les cartes */
+.card {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Style pour le titre du modal */
+.modal-title {
+  font-size: 2.5rem; /* Ajustez la taille selon vos besoins */
+  font-weight: bold;
+  color: #1d4ed8; /* Couleur du texte */
+  margin-bottom: 1rem;
+}
+
+/* Style pour le modal en général */
+.modal-content {
+  max-width: 80%; /* Ajustez la largeur selon vos besoins */
+  max-height: 80vh; /* Limite la hauteur du modal */
+  overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+}
+
+/* Assurez-vous d'avoir également ces styles pour le fond du modal et la fermeture */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+
+/* Footer */
+footer {
+/*   background-color: var(--secondary-color);
+ */  background: linear-gradient(to bottom, #1e3a8a, #152a5f);
+
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Styles pour les formulaires */
+input, textarea {
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Styles pour les images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles pour les listes */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Styles pour les tableaux */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Styles pour les citations */
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+/* Styles pour le texte mis en évidence */
+mark {
+  background-color: var(--accent-color);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}
+
+/* Styles pour les liens */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Styles pour les boutons de langue */
+.lang-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  #back-to-top {
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Accessibilité */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Style pour le contenu principal */
+main {
+  min-height: calc(100vh - 60px - 100px); /* Ajustez selon la hauteur de votre header et footer */
+}
+
+/* Créez un effet de survol pour les cartes de service */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Ajoutez un effet parallaxe subtil à certaines sections */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Utilisez des icônes pour les points clés */
+.key-point {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.key-point-icon {
+  margin-right: 1rem;
+  color: var(--primary-color);
+}
+
+/* Ajoutez un effet de fondu pour les éléments qui apparaissent lors du défilement */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/* Animations et transitions */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.shrink {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Transitions pour les éléments interactifs */
+a, button {
+    transition: all 0.3s ease;
+}
+
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Animation pour le hero */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+.list-circle {
+  list-style-type: circle;
+}
+
+.modal-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.modal-content h3 {
+  color: #1e40af;
+}
+
+.modal-content h4 {
+  color: #1e3a8a;
+}
+
+.modal-content ul {
+  padding-left: 1.5rem;
+}
+
+.modal-content ul.list-circle {
+  list-style-type: circle;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+}
+
+[x-cloak] { display: none !important; }
+
+#back-to-top {
+  display: none; /* Masqué par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: #1e40af; /* Jaune */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: background-color 0.3s, opacity 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+  background-color: #1e3a8a; /* Plus foncé au survol */
+  transform: translateY(-3px); /* Légère animation au survol */
+}
+
+#back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  display: block; /* Affiche le bouton lorsque la classe "show" est ajoutée */
+ }

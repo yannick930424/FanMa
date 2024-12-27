@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO -->
+    <title>FanMa Expert-conseil - Codes et normes, Gestion de projet, Conception mécanique</title>
+    <meta name="description" content="Expert en codes du bâtiment, gestion de projet et conception mécanique. Services professionnels en ingénierie et consultation.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="FanMa Expert-conseil">
+    <meta property="og:description" content="Expert en codes du bâtiment, gestion de projet et conception mécanique">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fanma.ca">
+    <meta property="og:image" content="/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Hreflang tags -->
+    <link rel="alternate" hreflang="fr" href="https://fanma.ca/fr/">
+    <link rel="alternate" hreflang="en" href="https://fanma.ca/en/">
+    <link rel="alternate" hreflang="x-default" href="https://fanma.ca/fr/">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .redirect-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .loading {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #2563eb;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script src="/assets/js/components/header.js"></script>
+    <script>
+        function redirectToLanguage() {
+            // Vérifier si une langue est stockée
+            const storedLang = localStorage.getItem('lang');
+            if (storedLang && (storedLang === 'fr' || storedLang === 'en')) {
+                window.location.href = '/' + storedLang + '/';
+                return;
+            }
+
+            // Détecter la langue du navigateur
+            let userLang;
+            if (navigator.languages && navigator.languages.length) {
+                // Support des navigateurs modernes avec array de langues
+                userLang = navigator.languages[0];
+            } else {
+                // Support des navigateurs plus anciens
+                userLang = navigator.language || navigator.userLanguage;
+            }
+
+            // Nettoyer et normaliser le code de langue
+            const preferredLang = userLang.toLowerCase().split(/[-_]/)[0];
+
+            // Rediriger vers la version appropriée
+            if (preferredLang === 'fr') {
+                localStorage.setItem('lang', 'fr');
+                window.location.href = '/fr/';
+            } else {
+                localStorage.setItem('lang', 'en');
+                window.location.href = '/en/';
+            }
+        }
+
+        // Exécuter la redirection
+        redirectToLanguage();
+    </script>
+
+    <!-- Fallback pour JavaScript désactivé -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/fr/">
+    </noscript>
+</head>
+<body>
+    <div class="redirect-container">
+        <img src="/assets/images/logo.png" alt="FanMa Logo" class="logo">
+        <h1>FanMa Expert-conseil</h1>
+        <div class="loading"></div>
+        <noscript>
+            <p>Si vous n'êtes pas redirigé automatiquement, <a href="/fr/">cliquez ici</a>.</p>
+        </noscript>
+    </div>
+</body>
+</html>

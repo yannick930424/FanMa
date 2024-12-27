@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.fanma.ca/sitemap.xml
+
+# Répertoires à ne pas indexer
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Permettre l'indexation des pages principales
+Allow: /fr/
+Allow: /en/
+Allow: /fr/services
+Allow: /en/services
+Allow: /fr/a-propos
+Allow: /en/about
+Allow: /fr/contact
+Allow: /en/contact
+
+# Clean Parameters
+Disallow: /*?*
+
+# Prevent duplicate content
+Disallow: /*?utm_
+Disallow: /*&utm_
+Disallow: /*?fbclid
+Disallow: /*&fbclid

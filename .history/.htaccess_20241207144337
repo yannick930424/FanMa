@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Forcer HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirection linguistique basée sur le navigateur
+RewriteCond %{REQUEST_URI} ^/$
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteRule ^ /fr/ [L,R=302]
+
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ /en/ [L,R=302]
+
+# Redirection des anciennes URLs vers les nouvelles
+RewriteRule ^index\.html$ / [L,R=301]
+RewriteRule ^(fr|en)/index\.html$ /$1/ [L,R=301]
